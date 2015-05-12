@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		link(rel='shortcut icon', href='../../assets/ico/favicon.ico')
+
+		link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+		
+		link(href='/stylesheets/mainpagecss.css', rel='stylesheet')
+		
+	body(onload = 'onload()', style="padding-top: 100px;")
+			// Block Content is used to extend into each departments respecive jade files. 
+			#part1.jumbotron
+				center
+					h1 NodeJS Playground
+				center
+					p Click on any button, to enjoy unique pages.
+			#part3.jumbotron
+				.row(style="margin-right:0px; margin-left:0px;")
+					each dept in depts
+						if (depts.length+1)%3
+							.col-sm-4
+								a.list-group-item(href=dept.href style="background-color: rgba(221, 221, 221, 0.8);")
+									#slidecaption=dept.name
+									img.imageButton(src=dept.image id="a1" style='width:100%;overflow:hidden;-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;')
+						else if (depts.length+1)%2
+							.col-sm-6
+								a.list-group-item(href=dept.href style="background-color: rgba(221, 221, 221, 0.8);")
+									#slidecaption=dept.name
+									img.imageButton(src=dept.image id="a1" style='width:100%;overflow:hidden;-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;')
+						else
+							.col-sm-12
+								a.list-group-item(href=dept.href style="background-color: rgba(221, 221, 221, 0.8);")
+									#slidecaption=dept.name
+									img.imageButton(src=dept.image id="a3" style='width:100%;overflow:hidden;-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;')
+	script(src='/javascripts/jquery-1.10.2.min.js')
+	script(src='/bootstrap/js/bootstrap.min.js')
